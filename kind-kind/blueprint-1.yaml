@@ -1,0 +1,65 @@
+apiVersion: app.fybrik.io/v1beta1
+kind: Blueprint
+metadata:
+  annotations:
+    app.fybrik.io/app-uuid: a948064d-405e-405b-82bb-737e522bace2
+  creationTimestamp: "2023-04-15T20:25:50Z"
+  finalizers:
+  - Blueprint.finalizer
+  generation: 1
+  labels:
+    app: my-notebook-read
+    app.fybrik.io/app-name: my-notebook-read
+    app.fybrik.io/app-namespace: fybrik-notebook-sample
+    razee/watch-resource: debug
+  name: my-notebook-read-fybrik-notebook-sample
+  namespace: fybrik-system
+  resourceVersion: "363519"
+  uid: 2ea97131-5dde-44f8-be22-795e27ac79ea
+spec:
+  application:
+    context:
+      intent: Fraud Detection
+    selector:
+      matchLabels:
+        app: my-notebook-read
+  cluster: thegreendragon
+  modules:
+    arrow-flight-module:
+      arguments:
+        assets:
+        - args:
+          - connection:
+              name: s3
+              s3:
+                bucket: my-notebook-write-3-fybrik-notebook-sample441d61e937ccc2024ee1
+                endpoint: http://s3.fybrik-system.svc.cluster.local:9090
+                object_key: new-data33c56e442c
+                region: eu-de
+            format: parquet
+            vault:
+              read:
+                address: http://vault.fybrik-system:8200
+                authPath: /v1/auth/kubernetes/login
+                role: module
+                secretPath: /v1/omd-secrets/fybrik-notebook-sample-s3
+          assetID: fybrik-notebook-sample-s3.default.my-notebook-write-3-fybrik-notebook-sample441d61e937ccc2024ee1.new-data33c56e442c
+          capability: read
+      assetIds:
+      - fybrik-notebook-sample-s3.default.my-notebook-write-3-fybrik-notebook-sample441d61e937ccc2024ee1.new-data33c56e442c
+      chart:
+        name: ghcr.io/fybrik/arrow-flight-module-chart:0.0.0-master
+        values:
+          image.tag: master
+      name: arrow-flight-module
+  modulesNamespace: fybrik-blueprints
+status:
+  modules:
+    arrow-flight-module:
+      ready: true
+  observedGeneration: 1
+  observedState:
+    ready: true
+  releases:
+    my-notebook-reada948064d-405e-405b-82bb-737e522-4074b: 1
+
