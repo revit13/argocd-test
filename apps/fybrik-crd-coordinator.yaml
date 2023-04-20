@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fybrik-crd
+spec:
+  destination:
+    name: ''
+    namespace: fybrik-system
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: charts/fybrik-crd
+    repoURL: 'https://github.com/fybrik/charts'
+    targetRevision: HEAD
+  sources: []
+  project: fybrik
+

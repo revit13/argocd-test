@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fybrik
+spec:
+  destination:
+    name: ''
+    namespace: fybrik-system
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: charts/fybrik
+    repoURL: 'https://github.com/fybrik/charts'
+    targetRevision: HEAD
+    helm:
+      parameters:
+        - name: cluster.name
+          value: kind-control
+        - name: cluster.zone
+          value: baggin
+        - name: cluster.region
+          value: took
+        - name: cluster.vaultAuthPath
+          value: control
+        - name: coordinator.vault.enabled
+          value: "true"
+        - name: coordinator.vault.address
+          value: http://control-control-plane:80
+        - name: coordinator.catalog
+          value: katalog
+        - name: manager.socat
+          value: "true"
+        - name: global.hub
+          value: localhost:5000/fybrik-system
+        - name: global.tag
+          value: "0.0.0"
+  sources: []
+  project: fybrik
+

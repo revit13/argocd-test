@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fybrik-crd-remote
+spec:
+  destination:
+    name: 'kind-kind'
+    namespace: fybrik-system
+  source:
+    path: charts/fybrik-crd
+    repoURL: 'https://github.com/fybrik/charts'
+    targetRevision: HEAD
+  sources: []
+  project: fybrik
+
