@@ -11,8 +11,7 @@ spec:
   source:
     path: charts/fybrik
     repoURL: 'https://github.com/revit13/fybrik'
-    targetRevision: HEAD
-    branch: argocd-test
+    targetRevision: argocd-test
     helm:
       parameters:
         - name: cluster.name
