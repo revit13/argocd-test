@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: charts/fybrik
-    repoURL: 'https://github.com/revit13/fybrik.git'
+    repoURL: 'https://github.com/revit13/fybrik'
     targetRevision: HEAD
     branch: argocd-test
     helm:
