@@ -14,7 +14,7 @@ spec:
     helm:
       parameters:
         - name: cluster.name
-          value: kind-control
+          value: kind-kind
         - name: cluster.zone
           value: baggin
         - name: cluster.region
@@ -27,6 +27,8 @@ spec:
           value: http://control-control-plane:80
         - name: coordinator.catalog
           value: katalog
+        - name: coordinator.enabled
+          value: false
         - name: manager.socat
           value: "true"
         - name: global.hub

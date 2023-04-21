@@ -10,8 +10,9 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: charts/fybrik
-    repoURL: 'https://github.com/fybrik/charts'
+    repoURL: 'https://github.com/revit13/fybrik.git'
     targetRevision: HEAD
+    branch: argocd-test
     helm:
       parameters:
         - name: cluster.name
@@ -31,9 +32,23 @@ spec:
         - name: manager.socat
           value: "true"
         - name: global.hub
-          value: localhost:5000/fybrik-system
+          value: ghcr.io/revit13
         - name: global.tag
           value: "0.0.0"
+        - name: coordinator.argocd.url
+          value: "http://argo-argocd-server.argocd:80"
+        - name: coordinator.argocd.user
+          value: "admin"
+        - name: coordinator.argocd.password
+          value: "GaNr7orBJbJi4SNy"
+        - name: coordinator.argocd.appsGitRepo.url
+          value: "https://github.com/revit13/argocd-test.git"
+        - name: coordinator.argocd.appsGitRepo.user
+          value: "revit13"
+        - name: coordinator.argocd.appsGitRepo.fybrikAppsPath
+          value: "argocd-fybrik-apps"
+        - name: coordinator.argocd.appsGitRepo.blueprintsAppsPath
+          value: "blueprints"
   sources: []
   project: fybrik
 
