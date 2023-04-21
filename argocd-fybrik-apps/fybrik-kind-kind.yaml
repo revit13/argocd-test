@@ -28,7 +28,7 @@ spec:
         - name: coordinator.catalog
           value: katalog
         - name: coordinator.enabled
-          value: false
+          value: "false"
         - name: manager.socat
           value: "true"
         - name: global.hub
