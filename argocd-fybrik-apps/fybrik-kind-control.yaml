@@ -41,7 +41,7 @@ spec:
         - name: coordinator.argocd.password
           value: "GaNr7orBJbJi4SNy"
         - name: coordinator.argocd.appsGitRepo.url
-          value: "https://github.com/revit13/argocd-test.git"
+          value: "https://github.com/revit13/argocd-test"
         - name: coordinator.argocd.appsGitRepo.user
           value: "revit13"
         - name: coordinator.argocd.appsGitRepo.fybrikAppsPath
