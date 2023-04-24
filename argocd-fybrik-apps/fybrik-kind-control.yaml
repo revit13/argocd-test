@@ -44,8 +44,8 @@ spec:
           value: "https://github.com/revit13/argocd-test"
         - name: coordinator.argocd.appsGitRepo.user
           value: "revit13"
-        - name: coordinator.argocd.appsGitRepo.fybrikAppsPath
-          value: "argocd-fybrik-apps"
+        - name: coordinator.argocd.appsGitRepo.fybrikAppsPrefix
+          value: "fybrik"
         - name: coordinator.argocd.appsGitRepo.blueprintsAppsPath
           value: "blueprints"
   sources: []
