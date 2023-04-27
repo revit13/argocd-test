@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: fybrik-kind-control
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     name: ''
