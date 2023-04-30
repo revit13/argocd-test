@@ -1,11 +1,19 @@
 {
-  "cluster.name": "kind-kind",
-  "cluster.zone": "hobbiton",
-  "cluster.region": "theshire",
-  "cluster.vaultAuthPath": "control",
-  "coordinator.enabled": "false",
-  "manager.socat": "true",
-  "global.hub": "localhost:5000/fybrik-system",
-  "global.tag": "0.0.0"
+  "cluster": {
+    "name": "kind-kind",
+    "zone": "hobbiton",
+    "region": "theshire",
+    "vaultAuthPath": "control"
+  },
+  "coordinator": {
+    "enabled": "false"
+  },
+  "manager": {
+    "socat": "true"
+  },
+  "global": {
+    "hub": "localhost:5000/fybrik-system",
+    "tag": "0.0.0"
+  }
 }
 
