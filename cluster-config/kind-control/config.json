@@ -1,6 +1,7 @@
 {
   "cluster": {
     "name": "kind-control",
+    "address": "https://kubernetes.default.svc",
     "zone": "baggin",
     "region": "took",
     "vaultAuthPath": "control"

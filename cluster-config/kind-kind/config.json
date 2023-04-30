@@ -1,6 +1,7 @@
 {
   "cluster": {
     "name": "kind-kind",
+    "address": "https://172.20.0.4:6443",
     "zone": "hobbiton",
     "region": "theshire",
     "vaultAuthPath": "control"
