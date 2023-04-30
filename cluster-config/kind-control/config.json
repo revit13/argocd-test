@@ -1,0 +1,19 @@
+{
+"cluster.name": "kind-control",
+"cluster.zone": "baggin",
+"cluster.region": "took",
+"cluster.vaultAuthPath": "control",
+"coordinator.vault.enabled":"true",
+"coordinator.vault.address": "http://control-control-plane:80",
+"coordinator.catalog":"katalog",
+"manager.socat": "true",
+"global.hub": "ghcr.io/revit13",
+"global.tag": "0.0.0",
+"coordinator.argocd.url": "http://argo-argocd-server.argocd:80",
+"coordinator.argocd.user": "admin",
+"coordinator.argocd.password": "GaNr7orBJbJi4SNy",
+"coordinator.argocd.appsGitRepo.url": "https://github.com/revit13/argocd-test",
+"coordinator.argocd.appsGitRepo.user": "revit13",
+"coordinator.argocd.appsGitRepo.fybrikAppsPrefix": "fybrik",
+"coordinator.argocd.appsGitRepo.blueprintsAppsPath": "blueprints"
+}

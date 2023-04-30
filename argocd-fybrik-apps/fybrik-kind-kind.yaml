@@ -18,17 +18,11 @@ spec:
         - name: cluster.name
           value: kind-kind
         - name: cluster.zone
-          value: baggin
+          value: hobbiton
         - name: cluster.region
-          value: took
+          value: theshire
         - name: cluster.vaultAuthPath
-          value: control
-        - name: coordinator.vault.enabled
-          value: "true"
-        - name: coordinator.vault.address
-          value: http://control-control-plane:80
-        - name: coordinator.catalog
-          value: katalog
+          value: kind
         - name: coordinator.enabled
           value: "false"
         - name: manager.socat

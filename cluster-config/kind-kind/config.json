@@ -1,0 +1,10 @@
+{
+"cluster.name": "kind-kind",
+"cluster.zone": "hobbiton",
+"cluster.region": "theshire",
+"cluster.vaultAuthPath": "control",
+"coordinator.enabled": "false",
+"manager.socat": "true",
+"global.hub": "localhost:5000/fybrik-system",
+"global.tag": "0.0.0"
+}
