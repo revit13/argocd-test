@@ -41,7 +41,7 @@ spec:
         - name: coordinator.argocd.user
           value: "admin"
         - name: coordinator.argocd.password
-          value: "oLuETQqnZaGhSTrG"
+          value: "XUooXx2C0PX0UvF-"
         - name: coordinator.argocd.appsGitRepo.url
           value: "https://github.com/revit13/argocd-test"
         - name: coordinator.argocd.appsGitRepo.user
