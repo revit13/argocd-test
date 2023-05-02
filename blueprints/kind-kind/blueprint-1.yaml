@@ -23,7 +23,7 @@ spec:
     selector:
       matchLabels:
         app: my-notebook-read
-  cluster: thegreendragon
+  cluster: kind-control
   modules:
     arrow-flight-module:
       arguments:
