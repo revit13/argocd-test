@@ -1,0 +1,75 @@
+typemeta:
+  kind: Blueprint
+  apiversion: app.fybrik.io/v1beta1
+objectmeta:
+  name: my-notebook-fybrik-notebook-sample
+  generatename: ""
+  namespace: fybrik-system
+  selflink: ""
+  uid: ""
+  resourceversion: ""
+  generation: 0
+  creationtimestamp: "0001-01-01T00:00:00Z"
+  deletiontimestamp: null
+  deletiongraceperiodseconds: null
+  labels:
+    app: my-notebook
+    app.fybrik.io/app-name: my-notebook
+    app.fybrik.io/app-namespace: fybrik-notebook-sample
+    razee/watch-resource: debug
+  annotations:
+    app.fybrik.io/app-uuid: 9c083c7a-f6f8-4274-ba8a-f01616a1bde3
+  ownerreferences: []
+  finalizers:
+  - Blueprint.finalizer
+  managedfields: []
+spec:
+  cluster: kind-control
+  modulesnamespace: fybrik-blueprints
+  modules:
+    arrow-flight-module:
+      name: arrow-flight-module
+      chart:
+        name: ghcr.io/fybrik/arrow-flight-module-chart:0.11.0
+        chartpullsecret: ""
+        values:
+          image.tag: 0.11.0
+      arguments:
+        assets:
+        - arguments:
+          - vault:
+              read:
+                role: module
+                secretpath: /v1/kubernetes-secrets/paysim-csv?namespace=fybrik-notebook-sample
+                address: http://control-control-plane:80
+                authpath: /v1/auth/control/login
+            connection:
+              name: s3
+              additionalproperties:
+                items:
+                  s3:
+                    bucket: demo
+                    endpoint: http://localstack.fybrik-notebook-sample.svc.cluster.local:4566
+                    object_key: PS_20174392719_1491204439457_log.csv
+            format: csv
+          assetid: fybrik-notebook-sample/paysim-csv
+          transformations: []
+          capability: read
+      assetids:
+      - fybrik-notebook-sample/paysim-csv
+  application:
+    workloadselector:
+      matchlabels:
+        app: my-notebook
+      matchexpressions: []
+    context:
+      properties:
+        items:
+          intent: Fraud Detection
+status:
+  observedstate:
+    ready: false
+    error: ""
+  observedgeneration: 0
+  modulesstate: {}
+  releases: {}
