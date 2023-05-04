@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blueprints-kind-control
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  destination:
+    name: 'kind-control'
+    namespace: fybrik-system
+  source:
+    path: blueprints/kind-control
+    repoURL: 'https://github.com/revit13/argocd-test'
+    targetRevision: HEAD
+  sources: []
+  project: fybrik
+
