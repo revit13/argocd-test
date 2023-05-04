@@ -1,0 +1,53 @@
+apiVersion: app.fybrik.io/v1beta1
+kind: Blueprint
+metadata:
+  annotations:
+    app.fybrik.io/app-uuid: 6be5246c-d71e-4ed6-8fb7-09f001d07ca4
+  creationTimestamp: null
+  finalizers:
+  - Blueprint.finalizer
+  labels:
+    app: my-notebook
+    app.fybrik.io/app-name: my-notebook
+    app.fybrik.io/app-namespace: fybrik-notebook-sample
+    razee/watch-resource: debug
+  name: my-notebook-fybrik-notebook-sample
+  namespace: fybrik-system
+spec:
+  application:
+    context:
+      intent: Fraud Detection
+    selector:
+      matchLabels:
+        app: my-notebook
+  cluster: kind-control
+  modules:
+    arrow-flight-module:
+      arguments:
+        assets:
+        - args:
+          - connection:
+              name: s3
+              s3:
+                bucket: demo
+                endpoint: http://localstack.fybrik-notebook-sample.svc.cluster.local:4566
+                object_key: PS_20174392719_1491204439457_log.csv
+            format: csv
+            vault:
+              read:
+                address: http://control-control-plane:80
+                authPath: /v1/auth/control/login
+                role: module
+                secretPath: /v1/kubernetes-secrets/paysim-csv?namespace=fybrik-notebook-sample
+          assetID: fybrik-notebook-sample/paysim-csv
+          capability: read
+      assetIds:
+      - fybrik-notebook-sample/paysim-csv
+      chart:
+        name: ghcr.io/fybrik/arrow-flight-module-chart:0.11.0
+        values:
+          image.tag: 0.11.0
+      name: arrow-flight-module
+  modulesNamespace: fybrik-blueprints
+status:
+  observedState: {}
